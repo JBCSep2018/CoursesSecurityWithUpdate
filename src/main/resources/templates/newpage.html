@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <th:block th:insert="base :: header"></th:block>
+</head>
+<body>
+
+<div th:replace="base :: nav"></div>
+
+<div class="container">
+    <!--insert webpage content here-->
+</div>
+
+<div th:replace="base :: footer"></div>
+
+</body>
+</html>
