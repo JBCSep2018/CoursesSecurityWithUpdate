@@ -7,13 +7,15 @@
 </head>
 <body>
 
+    <div th:replace="base :: nav"></div>
+
     <a href="/add">Add a Course</a><br/>
 
     <table>
         <tr>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>Title</th>
+            <th>Instructor</th>
+            <th>Credit</th>
             <th></th>
         </tr>
         <tr th:each="course : ${courses}">

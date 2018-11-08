@@ -82,4 +82,5 @@ public class HomeController {
     courseRepository.deleteById(id);
     return "redirect:/";
   }
+
 }
