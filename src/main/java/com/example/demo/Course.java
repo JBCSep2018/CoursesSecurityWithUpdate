@@ -1,9 +1,6 @@
 package com.example.demo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -29,6 +26,10 @@ public class Course {
   @NotNull
   @Min(3)
   private int credit;
+
+  @ManyToOne (fetch = FetchType.EAGER)
+  @JoinColumn(name = "user_id")
+  private User user;
 
   public Course() {
   }
@@ -78,5 +79,13 @@ public class Course {
 
   public void setCredit(int credit) {
     this.credit = credit;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
   }
 }

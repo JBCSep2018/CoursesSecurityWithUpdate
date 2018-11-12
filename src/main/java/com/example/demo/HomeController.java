@@ -46,6 +46,9 @@ public class HomeController {
   @RequestMapping("/")
   public String listCourses(Model model){
     model.addAttribute("courses", courseRepository.findAll());
+    if(userService.getUser() != null) {
+      model.addAttribute("user_id", userService.getUser().getId());
+    }
     return "list";
   }
 
@@ -61,6 +64,7 @@ public class HomeController {
       return "courseform";
     }
 
+    course.setUser(userService.getUser());
     courseRepository.save(course);
     return "redirect:/";
   }
