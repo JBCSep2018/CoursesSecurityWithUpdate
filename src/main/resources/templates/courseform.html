@@ -2,9 +2,15 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add Course</title>
+    <th:block th:insert="base :: header"></th:block>
 </head>
 <body>
+
+<div th:replace="base :: nav"></div>
+
+<div class="container">
+
     <form action="#" th:action="@{/process}" th:object="${course}"
           method="post">
         <input type="hidden" th:field="*{id}"/>
@@ -23,5 +29,8 @@
 
         <input type="submit" value="Submit"/>
     </form>
+</div>
+
+<div th:replace="base :: footer"></div>
 </body>
 </html>

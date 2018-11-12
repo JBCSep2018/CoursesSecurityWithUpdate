@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns:th="www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Login Page</title>
+    <th:block th:insert="base :: header"></th:block>
 </head>
 <body>
 
@@ -12,7 +14,6 @@
         <div th:if="${param.error}">
             Invalid username or password
         </div>
-    </div>
 
     <div th:if="${param.logout}">
         You have been logged out
@@ -27,6 +28,7 @@
         </div>
         <div><input type="submit" value="Sign In"/></div>
     </form>
+    </div>
 
     <div th:replace="base:: footer"></div>
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns:th="www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Registration</title>
     <th:block th:insert="base :: header"></th:block>
@@ -8,7 +9,7 @@
 
     <div th:replace="base:: nav"></div>
 
-    <div class="container" style="margin-top: 200px;">
+    <div class="container">
         <h4>New User Registration</h4>
 
         <form autocomplete="off"
