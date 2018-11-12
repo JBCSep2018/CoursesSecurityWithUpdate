@@ -19,9 +19,6 @@ public class DataLoader implements CommandLineRunner {
   @Autowired
   CourseRepository courseRepository;
 
-  @Autowired
-  private PasswordEncoder passwordEncoder;
-
   @Override
   public void run(String... strings) throws Exception{
     roleRepository.save(new Role("USER"));
@@ -30,20 +27,17 @@ public class DataLoader implements CommandLineRunner {
     Role adminRole = roleRepository.findByRole("ADMIN");
     Role userRole = roleRepository.findByRole("USER");
 
-    User user = new User("jim@jim.com", passwordEncoder.encode("password"), "Jim", "Jimmerson", true,
+    User user = new User("jim@jim.com", "password", "Jim", "Jimmerson", true,
             "jim");
     user.setRoles(Arrays.asList(userRole));
     userRepository.save(user);
 
-    user = new User("admin@admin.com", passwordEncoder.encode("password"),
+    user = new User("admin@admin.com", "password",
             "Admin",
             "User", true,
             "admin");
     user.setRoles(Arrays.asList(adminRole));
     userRepository.save(user);
-//
-//    Course course = new Course("java", "dave", "intro to java fun", 3);
-//    course.setUser(userRepository.findByUsername("jim"));
-//    courseRepository.save(course);
+
   }
 }
